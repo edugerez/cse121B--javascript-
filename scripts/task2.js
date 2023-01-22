@@ -11,7 +11,7 @@ myName.textContent='Eduardo Selmar Gerez'
 
 // Step 3: declare and instantiate a variable to hold the current year
 const year=document.querySelector('#year');
-year.textContent='2022'
+year.textContent='2023'
 
 
 // Step 4: place the value of the current year variable into the HTML file
