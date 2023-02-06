@@ -62,8 +62,8 @@ nav ul li a {
     text-decoration: none;
 }
 nav ul li a:hover {
-    background-color: #efefef;
-    color: black;
+    background-color: #000000;
+    color: rgb(137, 177, 228);
 }
 
 section {
@@ -74,8 +74,8 @@ section {
 
 /* Class Selectors */
 .active {
-    background-color: white;
-    color: black;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
 }
 
 .open li {
