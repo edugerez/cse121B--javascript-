@@ -30,6 +30,21 @@
         <input type="button"  value="SUM" id="sum"> <input type="button"  value="SUBSTRACT"  onclick="substract()"> <input type="button"  value="MULTIPLY"  onclick="multiply()"> <input type="button"  value="DIVIDE"  onclick="divide()"><br><br>
         RESULT <input type="text" id="result">
 
+        <h2>Arrays</h2>
+        <h3>My Numbers</h3>
+        <p id="array"></p>
+        <h4>Odd Numbers from My Numbers with filter array</h4>
+        <p id="odd"></p>
+        <h4>Even Numbers from My Numbers with filter array</h4>
+        <p id="even"></p>
+        <h4>sum of My Numbers with reduce array</h4>
+        <p id="sumOfArray"></p>
+        <h4>double of My Numbers with map array</h4>
+        <p id="multiplied"></p>
+        <h4>Sum of multiplied of My Numbers with map/reduce array</h4>
+        <p id="sumOfMultiplied"></p>
+
+
 
         
         
@@ -74,12 +89,32 @@
             document.getElementById("result").value=result
             return result
          }
-       /*show current year*/ 
+       /*show current year*/
        const currentyear=new Date
        year=currentyear.getFullYear()
        document.getElementById("year").innerHTML=year
 
        /*array*/
+       myNumbers=[]
+       for(x=1;x<26; x++){myNumbers.push(x)}
+       
+      
+
+       evenNumbers=myNumbers.filter(x=>x%2==0)
+       oddNumbers=myNumbers.filter(x=>x%2!=0)
+       sumOfArray=myNumbers.reduce((total, number)=>total+number,0)
+       multiplied=myNumbers.map(x=>x*2)
+       sumOfMultiplied=multiplied.reduce((total, number)=>total+number,0)
+
+
+       document.getElementById("array").innerHTML=myNumbers
+       document.getElementById("odd").innerHTML=oddNumbers
+       document.getElementById("even").innerHTML=evenNumbers
+       document.getElementById("sumOfArray").innerHTML=sumOfArray
+       document.getElementById("multiplied").innerHTML=multiplied
+       document.getElementById("sumOfMultiplied").innerHTML=sumOfMultiplied
+
+       
 
        
 
