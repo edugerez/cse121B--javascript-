@@ -8,22 +8,7 @@
     <title>CSE121</title>
     <link href="https://fonts.googleapis.com/css?family=Kalam&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
-    <script>
-       
-        function sum(){
-           
-            var number1 = parseFloat(document.getElementById("number1").value);
-            var number2 = parseFloat(document.getElementById("number2").value);
-            var resultado = number1 +  number2
-            document.getElementById("result").value=resultado
-            return resultado
-            
-           
-          }
-          
-        
-
-    </script>
+    
 </head>
 
 <body>
@@ -42,10 +27,25 @@
         <dr>
         Number 1 <input type="text" id="number1"><br><br>
         Number 2 <input type="text" id="number2"><br><br>
-        <input type="button"  value="SUM" onclick="sum()"> <input type="button"  value="MINUS"  id="sum" onclick="substract()"> <input type="button"  value="MULTIPLY"  id="X" onclick="multiply()"> <input type="button"  value="DIVIDE"  id="divide" onclick="divide()"><br><br>
+        <input type="button"  value="SUM" id="sum"> <input type="button"  value="SUBSTRACT"  onclick="substract()"> <input type="button"  value="MULTIPLY"  onclick="multiply()"> <input type="button"  value="DIVIDE"  onclick="divide()"><br><br>
         RESULT <input type="text" id="result">
-        
-        
+
+        <h2>Arrays</h2>
+        <h3>My Numbers</h3>
+        <p id="array"></p>
+        <h4>Odd Numbers from My Numbers with filter array</h4>
+        <p id="odd"></p>
+        <h4>Even Numbers from My Numbers with filter array</h4>
+        <p id="even"></p>
+        <h4>sum of My Numbers with reduce array</h4>
+        <p id="sumOfArray"></p>
+        <h4>double of My Numbers with map array</h4>
+        <p id="multiplied"></p>
+        <h4>Sum of multiplied of My Numbers with map/reduce array</h4>
+        <p id="sumOfMultiplied"></p>
+
+
+
         
         
     </main>
@@ -53,6 +53,74 @@
         &copy;<span id="year"></span>
         <h2>Eduardo Gerez</h2>
     </footer>
+    <script>
+       /* I use addEventListener and click way only in sum function and then for the other functions I just add the "onlcick" from html....*/
+       let button=document.getElementById("sum")
+            button.addEventListener("click", sum)
+            
+       function sum(){
+            let number1 = Number(document.getElementById("number1").value);
+            let number2 = Number(document.getElementById("number2").value);
+            result= number1 + number2
+            document.getElementById("result").value=result
+            return result
+         }
+             
+       function substract(){
+            let number1 = Number(document.getElementById("number1").value);
+            let number2 = Number(document.getElementById("number2").value);
+            result= number1 - number2
+            document.getElementById("result").value=result
+            return result
+         }
+             
+       function multiply(){
+            let number1 = Number(document.getElementById("number1").value);
+            let number2 = Number(document.getElementById("number2").value);
+            result= number1 * number2
+            document.getElementById("result").value=result
+            return result
+         }
+             
+       function divide(){
+            let number1 = Number(document.getElementById("number1").value);
+            let number2 = Number(document.getElementById("number2").value);
+            result= number1 / number2
+            document.getElementById("result").value=result
+            return result
+         }
+       /*show current year*/
+       const currentyear=new Date
+       year=currentyear.getFullYear()
+       document.getElementById("year").innerHTML=year
+
+       /*array*/
+       myNumbers=[]
+       for(x=1;x<26; x++){myNumbers.push(x)}
+       
+      
+
+       evenNumbers=myNumbers.filter(x=>x%2==0)
+       oddNumbers=myNumbers.filter(x=>x%2!=0)
+       sumOfArray=myNumbers.reduce((total, number)=>total+number,0)
+       multiplied=myNumbers.map(x=>x*2)
+       sumOfMultiplied=multiplied.reduce((total, number)=>total+number,0)
+
+
+       document.getElementById("array").innerHTML=myNumbers
+       document.getElementById("odd").innerHTML=oddNumbers
+       document.getElementById("even").innerHTML=evenNumbers
+       document.getElementById("sumOfArray").innerHTML=sumOfArray
+       document.getElementById("multiplied").innerHTML=multiplied
+       document.getElementById("sumOfMultiplied").innerHTML=sumOfMultiplied
+
+       
+
+       
+
+
+       
+     </script>
     <style>
         main{
             margin:0 auto;
