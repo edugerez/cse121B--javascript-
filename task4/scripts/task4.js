@@ -12,7 +12,7 @@ const myself = {
     photoName:"photo of me",
     favoriteFoods:[' Roast meats',  ' Lasagna', ' Pizza'],
     hobbies:['play Guitar',' drink Mate',' watch movies'],
-    placesLived:[{place:"San Luis, Argetina",length:"3 years",reazon:"work"},{place:"Bs  As",length:"2 years",reazon:"mission"}],
+    placesLived:[{place:"San Luis, Argetina", length:"3 years",reazon:"work"},{place:"Buenos Aires, Argentina",length:"2 years",reazon:"mission"}],
 };
 const Name= document.querySelector('#name').textContent=myself.name
 const Photo=document.querySelector('#photo');
@@ -20,6 +20,7 @@ Photo.setAttribute('src',myself.photo);
 Photo.setAttribute('alt',myself.photoName);
 const Food = document.getElementById("favorite-foods");
 
+/*
 const R=document.createElement("li")
 R.innerHTML=myself.favoriteFoods[0];
 const L=document.createElement("li");
@@ -29,21 +30,34 @@ P.innerHTML=myself.favoriteFoods[2];
 
 Food.append(R, L, P);
 
-const hobieList= document.createElement("li");
-hobieList.append(myself.hobbies)
-const hobbies=document.getElementById("hobbies")
+*/
 
-hobbies.append(hobieList);
+myself.favoriteFoods.forEach(function(food){
+    const li= document.createElement("li");
+    li.textContent=food;
+    Food.appendChild(li);
+    Food.style.textAlign="left";
+});
+
+const hobbies=document.getElementById("hobbies");
+
+
+myself.hobbies.forEach(function(hobbie){
+    const hobbieLi= document.createElement("li");
+    hobbieLi.textContent=hobbie;
+    hobbies.appendChild(hobbieLi);
+    hobbies.style.textAlign="left";
+});
 
 
 const places= myself.placesLived.map(
     (place) => `
     <dt>${place.place}</dt>
-    <td>${place.length}</td>
+    <dd>${place.length}</dd>
     `
   );
   const lived= document.querySelector("#places-lived");
-  lived.innerHTML=places
+  lived.innerHTML=places.join("");
 
 // Step 8: For each object in the <em>placesLived</em> property:
 // - Create an HTML <dt> element and put its place property in the <dt> element
