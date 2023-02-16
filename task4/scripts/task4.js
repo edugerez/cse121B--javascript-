@@ -11,7 +11,7 @@ const myself = {
     photo:"images/gerez.png",
     photoName:"photo of me",
     favoriteFoods:[' Roast meats',  ' Lasagna', ' Pizza'],
-    hobbies:['play Guitar','drink Mate','watch movies'],
+    hobbies:['play Guitar',' drink Mate',' watch movies'],
     placesLived:[{place:"San Luis, Argetina",length:"3 years",reazon:"work"},{place:"Bs  As",length:"2 years",reazon:"mission"}],
 };
 const Name= document.querySelector('#name').textContent=myself.name
@@ -20,8 +20,55 @@ Photo.setAttribute('src',myself.photo);
 Photo.setAttribute('alt',myself.photoName);
 const Food = document.getElementById("favorite-foods");
 
-/*me esta costando*/
-Food.appendchilid(Li);
+const R=document.createElement("li")
+R.innerHTML=myself.favoriteFoods[0];
+const L=document.createElement("li");
+L.innerHTML=myself.favoriteFoods[1];
+const P=document.createElement("li");
+P.innerHTML=myself.favoriteFoods[2];
+
+Food.append(R, L, P);
+
+const hobieList= document.createElement("li");
+hobieList.append(myself.hobbies)
+const hobbies=document.getElementById("hobbies")
+
+hobbies.append(hobieList);
+
+
+const places= myself.placesLived.map(
+    (place) => `
+    <dt>${place.place}</dt>
+    <td>${place.length}</td>
+    `
+  );
+  const lived= document.querySelector("#places-lived");
+  lived.innerHTML=places
+
+// Step 8: For each object in the <em>placesLived</em> property:
+// - Create an HTML <dt> element and put its place property in the <dt> element
+// - Create an HTML <dd> element and put its length property in the <dd> element
+
+// Step 9: Append the HTML <dt> and <dd> elements created above to the HTML <dl> element with an ID of places-lived
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -55,9 +102,3 @@ Food.appendchilid(Li);
 // Step 6: Repeat Step 4 for each hobby in the hobbies property
 
 // Step 7: Repeat Step 5 using the HTML <ul> element with an ID of hobbies
-
-// Step 8: For each object in the <em>placesLived</em> property:
-// - Create an HTML <dt> element and put its place property in the <dt> element
-// - Create an HTML <dd> element and put its length property in the <dd> element
-
-// Step 9: Append the HTML <dt> and <dd> elements created above to the HTML <dl> element with an ID of places-lived
