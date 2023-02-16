@@ -11,7 +11,7 @@ const myself = {
     photo:"images/gerez.png",
     photoName:"photo of me",
     favoriteFoods:[' Roast meats',  ' Lasagna', ' Pizza'],
-    hobbies:['play Guitar',' drink Mate',' watch movies'],
+    hobbies:['play Guitar',' drink Mate',' watch movies',"To travel"],
     placesLived:[{place:"San Luis, Argetina", length:"3 years",reazon:"work"},{place:"Buenos Aires, Argentina",length:"2 years",reazon:"mission"}],
 };
 const Name= document.querySelector('#name').textContent=myself.name
